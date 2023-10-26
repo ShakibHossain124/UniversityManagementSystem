@@ -31,7 +31,7 @@ public class Splash extends JFrame {
         nextPage.setBounds(0, 512,800,50);
         nextPage.setIcon(welcome);
         nextPage.addActionListener((e)->{
-            System.out.println("Next Page");
+            new LogIn();
             dispose();
         });
     }
