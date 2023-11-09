@@ -6,7 +6,7 @@ public class LogIn extends JFrame {
 
 
     JPanel mainPanel = new JPanel();
-    ImageIcon i1 = new ImageIcon("Icons/cover.jpg");
+    ImageIcon i1 = new ImageIcon("C:\\Users\\Shaki\\OneDrive\\Desktop\\JavaProject\\UniversityManagementSystem\\Icons\\cover.jpg");
     Image i2 = i1.getImage().getScaledInstance(800,600,Image.SCALE_DEFAULT);
     ImageIcon cover = new ImageIcon(i2);
     JLabel mainLabel = new JLabel();
@@ -70,10 +70,18 @@ public class LogIn extends JFrame {
                         ResultSet resultSet = database.statement.executeQuery(query);
                         if (resultSet.next()){
                             System.out.println("Logged In");
+                            new Dashboard();
                             dispose();
                         }
                         else{
                             System.out.println("Invalid Username or Password");
+                                if (nameText.getText().isEmpty() || passwordField.getText().isEmpty())
+                                    JOptionPane.showMessageDialog(null, "Please Enter Name and Password", "Wrong Input", JOptionPane.ERROR_MESSAGE);
+                                else{
+                                    JOptionPane.showMessageDialog(null, "Invalid Name or Password", "Wrong Input", JOptionPane.ERROR_MESSAGE);
+                                    nameText.setText("");
+                                    passwordField.setText("");
+                                }
                         }
                     }catch(Exception e1){
                         System.out.println(e+ "Not Found");

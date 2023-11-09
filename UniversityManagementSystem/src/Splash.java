@@ -1,15 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 
 public class Splash extends JFrame {
-    ImageIcon i1 = new ImageIcon("Icons/cover.jpg");
+    ImageIcon i1 = new ImageIcon("C:\\Users\\Shaki\\OneDrive\\Desktop\\JavaProject\\UniversityManagementSystem\\Icons\\cover.jpg");
     Image i2 = i1.getImage().getScaledInstance(800,600,Image.SCALE_DEFAULT);
     ImageIcon splashPic = new ImageIcon(i2);
-
-    ImageIcon welcome = new ImageIcon("Icons/welcome.jpeg");
     JPanel mainPanel = new JPanel();
     JLabel mainLabel = new JLabel();
-    JButton nextPage = new JButton();
+    JLabel nextPage = new JLabel("Click To Go Next",JLabel.CENTER);
     Splash(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -27,13 +26,18 @@ public class Splash extends JFrame {
         mainPanel.add(mainLabel);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(-5,0,0,0));
         mainLabel.add(nextPage);
-        nextPage.setBackground(new Color(0xA7FECC5, true));
+
         nextPage.setBounds(0, 512,800,50);
-        nextPage.setIcon(welcome);
-        nextPage.addActionListener((e)->{
-            new LogIn();
-            dispose();
-        });
+        nextPage.setOpaque(true);
+        nextPage.setBackground(new Color(0x629EE5EF, true));
+        nextPage.setForeground(new Color(0xFF000000, true));
+        nextPage.setFont(new Font(Font.SANS_SERIF,Font.BOLD,30));
+        mainLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                new LogIn();
+                dispose();
+            }});
     }
 }
 

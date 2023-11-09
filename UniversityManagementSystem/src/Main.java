@@ -1,6 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         new Splash();
-        //new Database("admin", "1234");
+        //new Database();
+        //new Dashboard();
+        //new StudentLeave();
+        //new TeacherLeave();
+        //new StudentLeaveDetails();
+        //new TeacherLeaveDetails();
     }
 }
