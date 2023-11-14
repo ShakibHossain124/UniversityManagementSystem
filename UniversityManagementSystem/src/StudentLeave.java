@@ -88,7 +88,8 @@ public class StudentLeave extends JFrame {
 
         JButton submit = new JButton("Submit");
         submit.setFont(new Font("Arial", Font.BOLD, 25));
-        submit.setBounds(175, 400, 150, 30);
+        submit.setForeground(Color.BLACK);
+        submit.setBounds(100, 420, 120, 30);
         panel.add(submit);
 
         submit.addActionListener(
@@ -118,6 +119,14 @@ public class StudentLeave extends JFrame {
                     }
 
                 });
+
+        JButton cancel = new JButton("Cancel");
+        cancel.setFont(new Font("Arial", Font.BOLD, 25));
+        cancel.setForeground(Color.BLACK);
+        cancel.setBounds(270, 420, 120, 30);
+        panel.add(cancel);
+        cancel.addActionListener((e)-> this.dispose());
+
     }
 
 }

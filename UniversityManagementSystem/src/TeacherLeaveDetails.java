@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.sql.ResultSet;
-import net.proteanit.sql.DbUtils;
 
 public class TeacherLeaveDetails extends JFrame {
     JPanel panel;
@@ -39,21 +37,15 @@ public class TeacherLeaveDetails extends JFrame {
 
         table = new JTable();
         table.setBackground(new Color(0x95C5F1));
-        try{
-            Database db = new Database();
-            ResultSet resultSet = db.statement.executeQuery("SELECT * FROM `teacher leave`");
-            table.setModel(DbUtils.resultSetToTableModel(resultSet));
-        }catch (Exception e1){
-            throw new Error(e1);
-        }
+        table.setModel(new Table("Teacher Leave").model);
 
         JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane);
 
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 title.setSize(getWidth(), 100);
+                add(scrollPane);
                 scrollPane.setBounds(0,100,getWidth(),getHeight()-200);
             }
         });

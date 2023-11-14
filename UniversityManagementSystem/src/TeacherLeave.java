@@ -13,6 +13,7 @@ public class TeacherLeave extends JFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Teacher Leave");
         this.setSize(500, 600);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
     private void windowContent() {
@@ -87,7 +88,8 @@ public class TeacherLeave extends JFrame {
 
         JButton submit = new JButton("Submit");
         submit.setFont(new Font("Arial", Font.BOLD, 25));
-        submit.setBounds(175, 400, 150, 30);
+        submit.setForeground(Color.BLACK);
+        submit.setBounds(120, 420, 120, 30);
         panel.add(submit);
 
         submit.addActionListener(
@@ -108,15 +110,26 @@ public class TeacherLeave extends JFrame {
                         teacherLeaveDateField.setText("");
                         teacherReturnDateField.setText("");
                         teacherReasonField.setText("");
-                    }
-                    try {
-                        Database db = new Database();
-                        db.statement.executeUpdate("INSERT INTO `Teacher Leave` VALUES ('"+name+"','"+id+"','"+department+"','"+leaveDate+"','"+returnDate+"','"+reason+"');");
-                    } catch (Exception e1) {
-                        throw new Error(e1);
+
+                        try {
+                            Database db = new Database();
+                            db.statement.executeUpdate("INSERT INTO `Teacher Leave` VALUES ('"+name+"','"+id+"','"+department+"','"+leaveDate+"','"+returnDate+"','"+reason+"');");
+                        } catch (Exception e1) {
+                            throw new Error(e1);
+                        }
+
+
                     }
 
+
                 });
+
+        JButton cancel = new JButton("Cancel");
+        cancel.setFont(new Font("Arial", Font.BOLD, 25));
+        cancel.setForeground(Color.BLACK);
+        cancel.setBounds(270, 420, 120, 30);
+        panel.add(cancel);
+        cancel.addActionListener((e)-> this.dispose());
 
     }
 

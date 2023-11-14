@@ -3,12 +3,12 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-public class StudentLeaveDetails extends JFrame {
+public class FeeStructure extends JFrame {
     JPanel panel;
     JLabel title;
     JTable table;
 
-    StudentLeaveDetails() {
+    FeeStructure() {
         initComponent();
         windowComponent();
         setVisible(true);
@@ -17,7 +17,7 @@ public class StudentLeaveDetails extends JFrame {
 
 
     private void initComponent() {
-        setTitle("Student Leave Details");
+        setTitle("Fee Structure");
         setSize(1000, 700);
         panel = (JPanel) getContentPane();
         panel.setLayout(null);
@@ -27,7 +27,7 @@ public class StudentLeaveDetails extends JFrame {
     }
 
     private void windowComponent() {
-        title = new JLabel("Student Leave Details");
+        title = new JLabel("Fee Structure");
         panel.add(title);
         title.setOpaque(true);
         title.setFont(new Font("Roboto", Font.BOLD, 50));
@@ -37,7 +37,7 @@ public class StudentLeaveDetails extends JFrame {
 
         table = new JTable();
         table.setBackground(new Color(0x95C5F1));
-        table.setModel(new Table("Student Leave").model);
+        table.setModel(new Table("payment").model);
 
         JScrollPane scrollPane = new JScrollPane(table);
 

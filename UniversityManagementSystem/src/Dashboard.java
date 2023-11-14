@@ -37,10 +37,12 @@ public class Dashboard extends JFrame {
         JMenuItem faculty = new JMenuItem(" ADD FACULTY ");
         faculty.setBackground(Color.WHITE);
         info.add(faculty);
+        faculty.addActionListener(e -> new AddFaculty());
 
         JMenuItem student = new JMenuItem(" ADD STUDENT ");
         student.setBackground(Color.WHITE);
         info.add(student);
+        student.addActionListener(e -> new AddStudent());
 
 
         JMenu viewInfo = new JMenu(" VIEW INFORMATION ");
@@ -50,10 +52,12 @@ public class Dashboard extends JFrame {
         JMenuItem viewFaculty = new JMenuItem(" FACULTY INFORMATION ");
         viewFaculty.setBackground(Color.WHITE);
         viewInfo.add(viewFaculty);
+        viewFaculty.addActionListener(e -> new FacultyInformation());
 
         JMenuItem viewStudent = new JMenuItem(" STUDENT INFORMATION ");
         viewStudent.setBackground(Color.WHITE);
         viewInfo.add(viewStudent);
+        viewStudent.addActionListener(e -> new StudentInformation());
 
 
         JMenu leave = new JMenu(" APPLY LEAVE ");
@@ -106,10 +110,12 @@ public class Dashboard extends JFrame {
         JMenuItem money = new JMenuItem(" FEE STRUCTURE ");
         money.setBackground(Color.WHITE);
         fee.add(money);
+        money.addActionListener(e -> new FeeStructure());
 
         JMenuItem addFee = new JMenuItem(" STUDENT PAYMENT ");
         addFee.setBackground(Color.WHITE);
         fee.add(addFee);
+        addFee.addActionListener(e -> new Payment());
 
         JMenu update = new JMenu(" UPDATE INFORMATION ");
         update.setForeground(Color.BLACK);
