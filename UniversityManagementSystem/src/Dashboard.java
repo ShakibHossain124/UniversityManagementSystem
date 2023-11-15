@@ -98,10 +98,12 @@ public class Dashboard extends JFrame {
         JMenuItem mark = new JMenuItem(" ENTER MARKS ");
         mark.setBackground(Color.WHITE);
         exam.add(mark);
+        mark.addActionListener(e -> new Result());
 
         JMenuItem result = new JMenuItem(" VIEW RESULT ");
         result.setBackground(Color.WHITE);
         exam.add(result);
+        result.addActionListener(e -> new ViewResult());
 
         JMenu fee = new JMenu(" PAYMENT & FEES ");
         fee.setForeground(Color.BLACK);
@@ -124,10 +126,12 @@ public class Dashboard extends JFrame {
         JMenuItem fUpdate = new JMenuItem(" UPDATE FACULTY INFORMATION ");
         fUpdate.setBackground(Color.WHITE);
         update.add(fUpdate);
+        fUpdate.addActionListener(e -> new UpdateFaculty());
 
         JMenuItem sUpdate = new JMenuItem(" UPDATE STUDENT INFORMATION ");
         sUpdate.setBackground(Color.WHITE);
         update.add(sUpdate);
+        sUpdate.addActionListener(e -> new UpdateStudent());
 
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
